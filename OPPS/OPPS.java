@@ -8,26 +8,6 @@ public class OPPS{
         p1.setColor("yellow");
         System.out.println(p1.getColor());
 
-        // Student s1 = new Student();
-        // s1.calPercentage(98, 95, 99);
-        // System.out.println(s1.percentage);
-        // BankAccount myAcc = new BankAccount();
-        // myAcc.username = "Saika Islam";
-        // myAcc.setPassword("abcdefgh");
-
-    }
-}
-
-// class BankAccount{
-//    public String username;
-//    private String password;
-//    public void setPassword(String pwd) {
-//     password = pwd;
-
-//    }
-
-// }
-
 class Pen{
     private String color;
     private int tip;
