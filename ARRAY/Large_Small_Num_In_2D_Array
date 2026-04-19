@@ -1,5 +1,5 @@
 import java.util.*;
-class Main {
+public class Large_Small_Num_In_2D_Array {
     public static int smallest(int matrix[][]){
         int smallest = Integer.MAX_VALUE;
         for(int i=0; i<matrix.length; i++){
