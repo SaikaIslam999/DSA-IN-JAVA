@@ -4,18 +4,25 @@ import java.util.*;
 
 public class DiagonalSum {
     public static int calcSum(int matrix[][]) {
-        int sum = 0;
-        //primary
-        for(int i=0, j=0; i<matrix.length; i++, j++) {
-            sum += matrix[i][j];
-        }
-        
-        //secondary
-        for(int j=matrix.length-1, i=0; j>=0; j--,i++) {
-            if(i == j) {
-                continue;
+        // Brute method ---> Time complexity O(n^2)
+        // int sum = 0;
+        // for(int i=0; i<matrix.length; i++){
+        //     for(int j=0; j<matrix[0].length; j++){
+        //         if(i==j){ 
+        //             sum += matrix[i][j];
+        //         }
+        //         else if(i+j = matrix.length-1){
+        //             sum += matrix[i][j];
+        //         }
+        //     }
+        // }
+            
+        //Optimise method to find sum of diagonal in 2D array ---> Time complexity O(n)
+        for(int i=0; i<matrix.length; i++){
+            sum += matrix[i][i];
+            if(i != matrix.length-i-1){
+                sum += matrix[i][matrix.length-i-1];
             }
-            sum += matrix[i][j];
         }
         
         return sum;
