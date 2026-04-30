@@ -24,12 +24,3 @@ class Pen{
         this.tip = newTip;
     }
 }
-
-// class Student{
-//     String name;
-//     int age;
-//     float percentage;
-//     void calPercentage(int phy,int chem,int math){
-//         percentage = (phy + chem + math) / 3;
-//     }
-// }
