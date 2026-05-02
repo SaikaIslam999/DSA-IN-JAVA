@@ -25,15 +25,49 @@ class King implements ChessPlayer{
         System.out.println("up,down,right,left,diagonal-(by 1 step)");
     }
 }
-// // HERBIVORE
-// interface Herbivore{
-//     void eatgrass();
-// }
-// interface Carnivore{
-//     void eatmeat();
-// }
-//  class Bear implements Herbivore, Carnivore{
-//     public void eatboth(){
-//         System.out.println("Bear eat both grass and meat");
-//     }
-// }
+
+//MULTIPLE INHERITENCE
+class Main {
+    public static void main(String[] args) {
+        Bear b = new Bear();
+        b.grass();
+        b.meat();
+        Lion l = new Lion();
+        l.meat();
+        l.eat();
+    }
+}
+
+interface Animal{
+    void eat();
+}
+
+interface Hervivores extends Animal{
+    void grass();
+}
+
+interface Carnivores extends Animal{
+    void meat();
+}
+
+class Bear implements Hervivores, Carnivores{
+    public void eat(){
+        System.out.println("Bear eat plant...");
+    }
+    
+    public void grass(){
+        System.out.println("Bear eat grass...");
+    }
+    public void meat(){
+        System.out.println("Bear eat meat...");
+    }
+}
+
+class Lion implements Carnivores{
+    public void meat(){
+        System.out.println("Lion eat meat...");
+    }
+    public void eat(){
+        System.out.println("Lion hunts other animal...");
+    }
+}
