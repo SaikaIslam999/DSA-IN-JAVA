@@ -1,11 +1,11 @@
 public class RecursionBasics {
-    public static void printDnc(int n){
-     if(n==10){
-        System.out.print(10 +" ");
-        return;
-     }
-     printDnc(n+1);
-     System.out.print(n +" ");
+    public static void printDec(int n){
+     if(n==1){
+            System.out.print(n);
+            return;
+        }
+        System.out.print(n+" ");
+        printDec(n-1);
     }
     public static int fact(int n){
         if(n == 0){
