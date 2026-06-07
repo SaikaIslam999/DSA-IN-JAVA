@@ -17,7 +17,7 @@ class Main {
         }
         return true;
     }
-    public static void nQueens(char board[][], int row){
+    public static void nQueens(char board[][], int row){          //Time Complexity -> n!
         if(row == board.length){
             // printBoard(board);
             count++;
