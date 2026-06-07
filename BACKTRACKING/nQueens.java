@@ -51,6 +51,6 @@ class Main {
             }
         }
         nQueens(board, 0);
-        System.out.println(count);
+        System.out.println("Total ways to solvr n Queens "+ count);
     }
 }
