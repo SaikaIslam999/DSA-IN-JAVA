@@ -12,6 +12,6 @@ class Main {
         System.out.println(list);
 
         //Descending order 
-        Collections.sort(list, Collections.reverse());  -> //comparator fxn -> define sorting logic
+        Collections.sort(list, Collections.reverseOrder());  -> //comparator fxn -> define sorting logic
     }
 }
