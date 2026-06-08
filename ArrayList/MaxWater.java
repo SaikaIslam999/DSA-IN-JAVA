@@ -1,13 +1,33 @@
 import java.util.*;                  //Time complexity -> O(n^2)
 class Main {
-    public static int storeWater(ArrayList<Integer> list){
+    // public static int storeWater(ArrayList<Integer> list){
+    //     int maxWater = 0;
+    //     for(int i=0; i<list.size(); i++){
+    //         for(int j=1; j<list.size(); j++){
+    //             int height = Math.min(list.get(i), list.get(j));
+    //             int width = j-i;
+    //             int currWater = height * width;
+    //             maxWater = Math.max(maxWater, currWater);
+    //         }
+    //     }
+    //     return maxWater;
+    // }
+    
+    // TWO POINTER APPROACH -> TC-> O(n)
+    
+    public static int storeWater(ArrayList <Integer> list){
         int maxWater = 0;
-        for(int i=0; i<list.size(); i++){
-            for(int j=1; j<list.size(); j++){
-                int height = Math.min(list.get(i), list.get(j));
-                int width = j-i;
-                int currWater = height * width;
-                maxWater = Math.max(maxWater, currWater);
+        int lp = 0;
+        int rp = list.size()-1;
+        while(lp < rp){
+            int height = Math.min(list.get(lp), list.get(rp));
+            int width = rp - lp;
+            int currWater = height * width;
+            maxWater = Math.max(maxWater, currWater);
+            if(list.get(lp) < list.get(rp)){
+                lp++;
+            }else{
+                rp--;
             }
         }
         return maxWater;
