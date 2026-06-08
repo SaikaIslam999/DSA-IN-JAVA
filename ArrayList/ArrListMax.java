@@ -9,10 +9,11 @@ class Main {
         list.add(6);
         
         int arrayMax = Integer.MIN_VALUE;
-        for(int i=0; i<list.size(); i++){
-            if(list.get(i) > arrayMax){
-                arrayMax = list.get(i);
-            }
+        for(int i=0; i<list.size(); i++){       ///O(n)
+            // if(list.get(i) > arrayMax){
+            //     arrayMax = list.get(i);
+            // }
+            arrayMax = Math.max(arrayMax, list.get(i))
         }
         System.out.println("max element "+ arrayMax);
     }
