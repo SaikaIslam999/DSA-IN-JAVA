@@ -131,14 +131,53 @@ class LinkedList {
             }
             head = prev;
         }
+    public Node findMid(Node head){
+            Node slow = head;
+            Node fast = head;
+            
+            while(fast != null && fast.next != null){
+               slow = slow.next;
+               fast = fast.next.next;
+            }
+            return slow;
+        }
+        public boolean checkPalindrome(){
+            if(head == null || head.next != null){
+                return true;
+            }
+            Node midNode = findMid(head);
+            
+            Node prev = null;
+            Node curr = midNode;
+            Node next;
+            while(curr != null){
+                next = curr.next;
+                curr.next = prev;
+                prev = curr;
+                curr = next;
+            }
+            
+            Node right = prev;
+            Node left = head;
+            
+            while(right != null){
+                if(left.data != right.data){
+                    return false;
+                }
+                left = left.next;
+                right = right.next;
+            }
+            return true;
+        }
     public static void main(String[] args) {
         LinkedList ll = new LinkedList();
-        ll.addFirst(2);
+         LinkedList ll = new LinkedList();
         ll.addFirst(1);
-        ll.addLast(4);
-        ll.addLast(5);
-        ll.add(2, 3);
-        ll.print();  //1->2->3->4->5
+        ll.addFirst(2);
+        ll.addFirst(2);
+        ll.addFirst(1);   
+        ll.print();
+        System.out.println(ll.checkPalindrome())
         //System.out.println(ll.size);
         //ll.removeFirst();
         // ll.print();
