@@ -169,15 +169,52 @@ class LinkedList {
             }
             return true;
         }
+    public static boolean isCycle(){
+        Node slow = head;
+        Node fast = head;
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public static void remCycle(){
+        Node slow = head;
+        Node fast = head;
+        boolean cycle = false; 
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast){
+                cycle = true;
+                break;
+            }
+        }
+        if(cycle == false){
+            return;
+        }
+        slow = head;
+        Node prev = null;
+        while(slow != fast){
+            prev = fast;
+            slow = slow.next;
+            fast = fast.next;
+        }
+        prev.next = null;
+    }
     public static void main(String[] args) {
-        LinkedList ll = new LinkedList();
-         LinkedList ll = new LinkedList();
-        ll.addFirst(1);
-        ll.addFirst(2);
-        ll.addFirst(2);
-        ll.addFirst(1);   
-        ll.print();
-        System.out.println(ll.checkPalindrome())
+        // LinkedList ll = new LinkedList();
+        // LinkedList ll = new LinkedList();
+        // ll.addFirst(1);
+        // ll.addFirst(2);
+        // ll.addFirst(2);
+        // ll.addFirst(1);   
+        // ll.print();
+        // System.out.println(ll.checkPalindrome())
         //System.out.println(ll.size);
         //ll.removeFirst();
         // ll.print();
@@ -188,7 +225,15 @@ class LinkedList {
         // System.out.println(ll.itrSearch(10));
         // System.out.println(ll.recSearch(3));
         // System.out.println(ll.recSearch(10));
-        ll.reverse();
-        ll.print();
+        // ll.reverse();
+        // ll.print();
+        head = new Node(1);
+        head.next = new Node(2);
+        Node temp = head.next;
+        head.next.next = new Node(3);
+        head.next.next.next = temp;
+        System.out.println(isCycle());
+        remCycle();
+        System.out.println(isCycle());
     }
 }
